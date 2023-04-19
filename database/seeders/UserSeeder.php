@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
             'email_verified_at' => Carbon::now(),
         ]);
 
-        $Teacher = User::create([
+        $user__1 = User::create([
             'id' => '2',
             'first_name' => 'Sachin',
             'last_name' => 'Kavindu',
@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
             'email_verified_at' => Carbon::now(),
         ]);
 
-        $Student1 = User::create([
+        $user__2 = User::create([
             'id' => '3',
             'first_name' => 'Sandew',
             'last_name' => 'Dullewa',
@@ -41,7 +41,7 @@ class UserSeeder extends Seeder
             'email_verified_at' => Carbon::now(),
         ]);
 
-        $Student2 = User::create([
+        $user__3 = User::create([
             'id' => '4',
             'first_name' => 'Pasan',
             'last_name' => 'Vithana',
@@ -50,7 +50,7 @@ class UserSeeder extends Seeder
             'email_verified_at' => Carbon::now(),
         ]);
 
-        $Student3 = User::create([
+        $user__4 = User::create([
             'id' => '5',
             'first_name' => 'Nadun',
             'last_name' => 'Perera',
@@ -60,9 +60,9 @@ class UserSeeder extends Seeder
         ]);
 
         $Admin->assignRole([1]);
-        $Teacher->assignRole([2]);
-        $Student1->assignRole([3]);
-        $Student2->assignRole([3]);
-        $Student3->assignRole([3]);
+        $user__1->assignRole([2]);
+        $user__2->assignRole([2]);
+        $user__3->assignRole([2]);
+        $user__4->assignRole([2]);
     }
 }

@@ -9,6 +9,6 @@ class Role extends Model
 {
     use HasFactory;
 
-    const ROLE_TEACHER = '1';
-    const ROLE_STUDENT = '2';
+    const ROLE_ADMIN = '1';
+    const ROLE_USER = '2';
 }

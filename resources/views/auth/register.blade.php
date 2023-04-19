@@ -1,12 +1,21 @@
 <x-guest-layout>
+    <div class="sm:mx-auto sm:w-full sm:max-w-md">
+        <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+            alt="Friend List Management System">
+        <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Register your account</h2>
+        <p class="mt-2 text-center text-sm text-gray-600">
+            Friend List Management System
+        </p>
+    </div>
+
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
-        <!-- First Name -->
+        <!--First Name -->
         <div>
             <x-input-label for="first_name" :value="__('First Name')" />
             <x-text-input id="first_name" class="block mt-1 w-full" type="text" name="first_name" :value="old('first_name')"
-                required autofocus autocomplete="name" />
+                required autofocus autocomplete="first_name" />
             <x-input-error :messages="$errors->get('first_name')" class="mt-2" />
         </div>
 
@@ -51,10 +60,13 @@
                 href="{{ route('login') }}">
                 {{ __('Already registered?') }}
             </a>
+        </div>
 
-            <x-primary-button class="ml-4">
+        <div class="py-2">
+            <button type="submit"
+                class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                 {{ __('Register') }}
-            </x-primary-button>
+            </button>
         </div>
     </form>
 </x-guest-layout>
