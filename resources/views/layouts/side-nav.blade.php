@@ -93,6 +93,41 @@
                     Dashboard
                 </a>
 
+                <!-- FRIENDS -->
+                <div x-data="{{ request()->is('friend*') ? '{open:true}' : '{open:false}' }}" class="space-y-1">
+                    <button type="button"
+                        class="hover:bg-gray-100 hover:text-gray-900 {{ request()->is('friends*') ? 'bg-gray-100 text-black' : 'hover:text-gray-900 text-indigo-100' }} group w-full flex items-center pl-2 pr-1 py-2 text-left text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        x-state:on="Current" x-state:off="Default" aria-controls="sub-menu-1" @click="open = !open"
+                        aria-expanded="open" x-bind:aria-expanded="open.toString()"
+                        x-state-description="Current: &quot;bg-gray-100 text-gray-900&quot;, Default: &quot;text-indigo-100 hover:bg-gray-100&quot;">
+                        <svg class="mr-3 flex-shrink-0 h-6 w-6" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                            </path>
+                        </svg>
+                        <span class="flex-1">
+                            Friends
+                        </span>
+                        <svg class="text-gray-50 ml-3 flex-shrink-0 h-5 w-5 transform group-hover:text-gray-500 transition-colors ease-in-out duration-150"
+                            viewBox="0 0 20 20" x-state:on="Expanded" x-state:off="Collapsed" aria-hidden="true"
+                            :class="{ 'text-gray-400 rotate-90': open, 'text-gray-300': !(open) }">
+                            <path d="M6 6L14 10L6 14V6Z" fill="currentColor"></path>
+                        </svg>
+                    </button>
+                    <div x-description="Expandable link section, show/hide based on state." class="space-y-1"
+                        :class="open ? 'd-block' : 'd-none'" id="sub-menu-1" x-show="open">
+                        <a href="{{ route('friend.invite') }}"
+                            class="{{ request()->is('friend/invite') ? 'bg-indigo-300 text-gray-900' : 'hover:text-gray-900 text-indigo-100' }} group w-full flex items-center pl-11 pr-2 py-2 text-sm font-medium rounded-md hover:text-gray-900 hover:bg-indigo-400">
+                            Add a Friends
+                        </a>
+                        <a href="{{ route('friends.index') }}"
+                            class="{{ request()->is('friends') ? 'bg-indigo-300 text-gray-900' : 'hover:text-gray-900 text-indigo-100' }} group w-full flex items-center pl-11 pr-2 py-2 text-sm font-medium rounded-md hover:text-gray-900 hover:bg-indigo-400">
+                            Manage Friends
+                        </a>
+                    </div>
+                </div>
+
             </nav>
         </div>
         <!-- User Name and Role  -->
